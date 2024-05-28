@@ -1,5 +1,5 @@
 import { useState } from "react";
-export default function Player({ initialName, symbol }) {
+export default function Player({ initialName, symbol,isActive }) {
 
 const [Name,setName]=useState(initialName);
 function handleChange(event){
@@ -19,8 +19,8 @@ function handleChange(event){
     btnCaption='Save'
   }
   return (
-    <li>
-      <span className="palyer">
+    <li className={isActive ?'active':undefined}>
+      <span className="player">
         {playerName}
         <span className="player-symbol">{symbol}</span>
       </span>

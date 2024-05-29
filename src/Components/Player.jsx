@@ -1,15 +1,21 @@
 import { useState } from "react";
-export default function Player({ initialName, symbol,isActive }) {
+export default function Player({ initialName, symbol,isActive,onChangeName}) {
 
 const [Name,setName]=useState(initialName);
 function handleChange(event){
   setName(event.target.value);
+
 }
 
 
   const [isEdited, setisEdited] = useState(false);
   function update() {
     setisEdited(isEdited=>!isEdited);
+    if(isEdited){
+      onChangeName(symbol,Name);
+    }
+
+    
   }
   let playerName = <span className="player-name">{Name}</span>;
   let btnCaption='Edit'
